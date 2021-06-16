@@ -28,22 +28,24 @@ class World:
 
     def get_room_exits(self, position):
         exits = []
-        if self.check_exit(position, NORTH):
-            exits.append('north')
-        if self.check_exit(position, SOUTH):
-            exits.append('south')
-        if self.check_exit(position, EAST):
-            exits.append('east')
-        if self.check_exit(position, WEST):
-            exits.append('west')
+        for text, direction in DIRECTIONS.items():
+            if self.check_exit(position, direction):
+                exits.append(text)
         return " ".join(exits)
 
 
-# constants
-NORTH = (0, -1)
-SOUTH = (0, 1)
-EAST = (1, 0)
-WEST = (-1, 0)
+class Player:
+    def __init__(self, name, position):
+        self.name = name
+        self.position = position
+
+
+DIRECTIONS = {
+    'north': (0, 1),
+    'south': (0, -1),
+    'east': (1, 0),
+    'west': (-1, 0)
+}
 
 if __name__ == '__main__':
     world = World(20)
