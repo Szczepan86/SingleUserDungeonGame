@@ -39,6 +39,13 @@ class Player:
         self.name = name
         self.position = position
 
+    def move(self, direction_name, world):
+        if world.check_exit(self.position, DIRECTIONS['direction_name']):
+            self.position += DIRECTIONS['direction_name']
+            print(f'You went {direction_name}')
+        else:
+            print(f'You can\'t go {direction_name}!')
+
 
 DIRECTIONS = {
     'north': (0, 1),
@@ -46,6 +53,17 @@ DIRECTIONS = {
     'east': (1, 0),
     'west': (-1, 0)
 }
+
+
+def execute(player, command):
+    command = command.strip()
+
+    if DIRECTIONS(command):
+        player.move(command)
+        return
+
+    print('I don\'t understand what you meant!')
+
 
 if __name__ == '__main__':
     world = World(20)
