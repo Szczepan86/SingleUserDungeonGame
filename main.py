@@ -4,7 +4,7 @@ class Room:
         self.description = description
 
     def __str__(self):
-        return f'{self.name} ({self.x}, {self.y})\n' \
+        return f'{self.name}\n' \
                f'{self.description}'
 
 
@@ -15,14 +15,14 @@ class World:
     def add_room(self, room, position):
         self.world[position[0]][position[1]] = room
 
-    def get_room(self, x, y):
+    def get_room(self, position):
         try:
-            return self.world[x][y]
+            return self.world[position[0]][position[1]]
         except IndexError:
             return None
 
     def check_exit(self, position, direction):
-        if self.get_room(position[0] + direction[0], position[1] + direction[1]):
+        if self.get_room((position[0] + direction[0], position[1] + direction[1])):
             return True
         return False
 
@@ -50,9 +50,9 @@ if __name__ == '__main__':
     world.add_room(Room('Test Room1', 'This is my test room and there\'s nothing to do!'), (1, 2))
     world.add_room(Room('Test Room2', 'This is my test room and there\'s nothing to do!'), (1, 1))
     world.add_room(Room('Test Room3', 'This is my test room and there\'s nothing to do!'), (0, 2))
-    print(world.get_room(1, 2))
-    print(world.get_room_exits(1, 2))
-    print(world.get_room(6, 4))
-    print(world.get_room_exits(6, 4))
-    print(world.get_room(999, 999))
-    print(world.get_room_exits(999, 999))
+    print(world.get_room((1, 2)))
+    print(world.get_room_exits((1, 2)))
+    print(world.get_room((6, 4)))
+    print(world.get_room_exits((6, 4)))
+    print(world.get_room((999, 999)))
+    print(world.get_room_exits((999, 999)))
