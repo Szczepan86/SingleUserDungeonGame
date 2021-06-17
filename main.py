@@ -12,6 +12,28 @@ class Room:
         return f'{self.name}\n' \
                f'{self.description}'
 
+    @property
+    def name(self):
+        return self._name
+
+    @name.setter
+    def name(self, name):
+        if isinstance(name, str):
+            self._name = name
+        else:
+            self._name = 'default_name'
+
+    @property
+    def description(self):
+        return self._description
+
+    @description.setter
+    def description(self, description):
+        if isinstance(description, str):
+            self._description = description
+        else:
+            self._description = 'default_description'
+
 
 class World:
     def __init__(self, size):
