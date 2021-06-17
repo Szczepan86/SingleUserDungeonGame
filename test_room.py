@@ -1,7 +1,7 @@
 import unittest
 
 # class to test
-from main import Room
+from room import Room
 
 
 class TestRoom(unittest.TestCase):

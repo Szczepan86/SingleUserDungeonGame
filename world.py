@@ -51,3 +51,9 @@ class World:
             if self.check_exit(position, direction):
                 exits.append(text)
         return f'Exits: {", ".join(exits)}'
+
+    def __len__(self):
+        return sum([sum([1 for y in x if y]) for x in self.world])
+
+    def __str__(self):
+        return f'It\'s a {len(self.world)}x{len(self.world[0])} world with {len(self)} room(s).'

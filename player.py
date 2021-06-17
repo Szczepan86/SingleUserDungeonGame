@@ -24,3 +24,25 @@ class Player:
             print(f'You went {direction_name}')
         else:
             print(f'You can\'t go {direction_name}!')
+
+    @property
+    def position(self):
+        return self._position
+
+    @position.setter
+    def position(self, position):
+        if isinstance(position, tuple) and all(isinstance(n, int) for n in position) and len(position) == 2:
+            self._position = position
+        else:
+            self._position = (0, 0)
+
+    @property
+    def name(self):
+        return self._name
+
+    @name.setter
+    def name(self, name):
+        if isinstance(name, str):
+            self._name = name
+        else:
+            self._name = 'default_name'
