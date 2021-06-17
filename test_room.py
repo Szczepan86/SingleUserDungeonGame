@@ -1,9 +1,7 @@
 import unittest
 
 # class to test
-from main import World
 from main import Room
-from main import Player
 
 
 class TestRoom(unittest.TestCase):
@@ -31,5 +29,3 @@ class TestRoom(unittest.TestCase):
         self.assertEqual(str(self.room), 'default_name\nnew_description')
         self.room.description = ['unexpected', 'list']
         self.assertEqual(str(self.room), 'default_name\ndefault_description')
-
-
