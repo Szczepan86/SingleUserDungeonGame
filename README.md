@@ -6,8 +6,6 @@ It's a variation of simple dungeon game engine I created few years ago to teach 
 In this release I didn't use any DB as my primary goal was to focus on Python code examples, however if you want to use it for your own project ideas - it should be easy to adapt a simple DB to store room descriptions and players' state.
 
 ## How to play?
-In order to run this game you just need to launch 'main.py' file.
-Movement: north/south/east/west
-Write 'quit' if you want to finish.
+In order to run this game you just need to launch 'main.py' file. Movement command: north/south/east/west. Write 'quit' if you want to finish.
 
 Enjoy!
